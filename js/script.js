@@ -10,6 +10,7 @@ form.addEventListener('submit', (event) => {
   checkInputUserName();
   checkInputEmail();
   checkInputPassword();
+  checkInputPasswordConfirmation();
 })
 
 const checkInputUserName = () => {
@@ -47,6 +48,19 @@ const checkInputPassword = () => {
   }
 }
 
+const checkInputPasswordConfirmation = () => {
+  const passwordValue = password.value;
+  const passwordConfirmationValue = passwordConfirmation.value;
+
+  if (!passwordConfirmationValue) {
+    errorInput(passwordConfirmation, 'A confirmação de senha é um campo obrigatório!')
+  } else if (passwordValue !== passwordConfirmationValue) {
+    errorInput(passwordConfirmation, 'As senhas precisam ser idênticas.')
+  } else {
+    const formItem = passwordConfirmation.parentElement;
+    formItem.className = 'form-content'
+  }
+}
 
 
 const errorInput = (input, message) => {
