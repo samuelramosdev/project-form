@@ -10,6 +10,11 @@ form.addEventListener('submit', (event) => {
   checkForm();
 })
 
+email.addEventListener('blur', () => checkInputEmail())
+username.addEventListener('blur', () => checkInputUserName())
+password.addEventListener('blur', () => checkInputPassword())
+passwordConfirmation.addEventListener('blur', () => checkInputPasswordConfirmation())
+
 const checkInputUserName = () => {
   const usernameValue = username.value;
 
