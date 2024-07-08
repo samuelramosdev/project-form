@@ -56,9 +56,10 @@ body{
 
 .form-content a{
   position: absolute;
-  bottom: -20px;
+  bottom: -8px;
   left: 0;
   visibility: hidden;
+  font-size: 13px;
 }
 
 .form button{
@@ -79,4 +80,5 @@ body{
 
 .form-content.error a{
   color: #ff3b25;
+  visibility: visible;
 }
