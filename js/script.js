@@ -8,19 +8,46 @@ form.addEventListener('submit', (event) => {
   event.preventDefault();
 
   checkInputUserName();
+  checkInputEmail();
+  checkInputPassword();
 })
 
 const checkInputUserName = () => {
   const usernameValue = username.value;
 
   if (!usernameValue) {
-    errorInput(username, 'Username é um campo obrigatório!')
+    errorInput(username, 'Nome de usuário é um campo obrigatório!')
   } else {
     const formItem = username.parentElement;
-    formItem.classList = 'form-content'
+    formItem.className = 'form-content'
   }
-
 }
+
+const checkInputEmail = () => {
+  const emailValue = email.value;
+
+  if (!emailValue) {
+    errorInput(email, 'Email é um campo obrigatório!')
+  } else {
+    const formItem = email.parentElement;
+    formItem.className = 'form-content'
+  }
+}
+
+const checkInputPassword = () => {
+  const passwordValue = password.value;
+
+  if (!passwordValue) {
+    errorInput(password, 'Senha é um campo obrigatório!')
+  } else if (passwordValue.length < 8) {
+    errorInput(password, 'Sua senha deve ter no mínimo 8 caracteres.')
+  } else {
+    const formItem = password.parentElement;
+    formItem.className = 'form-content'
+  }
+}
+
+
 
 const errorInput = (input, message) => {
   const formItem = input.parentElement;
